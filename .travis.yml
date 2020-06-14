@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t piyushsawaria/docker-travis-aws -f Dockerfile.dev .
+
+script:
+  - docker run piyushsawaria/docker-travis-aws npm run test -- --coverage
